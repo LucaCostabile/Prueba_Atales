@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubicaciones - Atales</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/img/images.png" alt="Logo Atales">
+            <h1>Atales - Ubicaciones</h1>
+        </div>
+    </header>
+    
+    <main>
+        <h2>Lista de Ubicaciones</h2>
+        <p>A continuación, se presentan algunas ubicaciones importantes:</p>
+        
+        <div class="botones">
+            <a href="index.html" class="boton">Volver al Inicio</a>
+        </div>
+        
+        <ol>
+            <li>
+                <a href="https://www.google.com/maps/dir//Paso+de+los+Andes+1794,+M5502+Mendoza" target="_blank" rel="noopener noreferrer">
+                    Paso de los Andes 1794, M5502 Mendoza
+                </a>
+            </li>
+            <li>
+                <a href="https://www.google.com/maps/dir//Talcahuano+2845,+M5547+Godoy+Cruz,+Mendoza" target="_blank" rel="noopener noreferrer">
+                    Talcahuano 2845, M5547 Godoy Cruz, Mendoza
+                </a>
+            </li>
+            <li>
+                <a href="https://www.google.com/maps/dir//Elpidio+Gonz%C3%A1lez+2250,+M5500+Guaymall%C3%A9n,+Mendoza" target="_blank" rel="noopener noreferrer">
+                    Elpidio González 2250, M5500 Guaymallén, Mendoza
+                </a>
+            </li>
+        </ol>
+
+        <!-- Contenedor para el mapa -->
+        <div id="map" aria-label="Mapa de ubicaciones de Atales"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Atales. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Cargar Leaflet.js -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Inicializar el mapa en Mendoza
+        var map = L.map('map').setView([-32.8892, -68.8458], 12);
+
+        // Cargar capa de OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Definir ubicaciones de las sucursales
+        var locations = [
+            { lat: -32.8792397, lng: -68.8572598, title: "ATAL Autoservicio (Sucursal Ciudad)" },
+            { lat: -32.901485, lng: -68.8776196, title: "ATAL Autoservicio" },
+            { lat: -32.9200056, lng: -68.8179595, title: "ATAL Autoservicio (Sucursal Guaymallén)" }
+        ];
+
+        // Agregar marcadores al mapa
+        locations.forEach(location => {
+            L.marker([location.lat, location.lng]).addTo(map)
+                .bindPopup(`<b>${location.title}</b>`)
+                .openPopup();
+        });
+    </script>
+
+</body>
+</html>

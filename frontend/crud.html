@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Productos - Atales</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/img/images.png" alt="Logo Atales">
+            <h1>Atales</h1>
+        </div>
+    </header>
+    
+    <main>
+        <h2>Gestión de Productos</h2>
+        
+        <!-- Botón para volver al índice -->
+        <div class="botones">
+            <a href="index.html" class="boton">Volver al Inicio</a>
+        </div>
+        
+        <!-- Formulario para agregar un producto -->
+        <form id="producto-form" class="formulario">
+            <h3>Agregar Nuevo Producto</h3>
+            <div class="form-grupo">
+                <input type="text" id="nombre" placeholder="Nombre del producto" required>
+                <input type="number" id="precio" placeholder="Precio del producto" step="0.01" min="0" required>
+                <button type="submit" class="boton">Agregar Producto</button>
+            </div>
+        </form>
+
+        <h2>Lista de Productos</h2>
+        <div class="tabla-contenedor">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="productos-lista"></tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Atales. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
