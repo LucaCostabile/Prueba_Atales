@@ -6,10 +6,11 @@ const db = require('../database');
 const sgMail = require('@sendgrid/mail');
 const path = require('path');
 
-const router = express.Router();  // Usamos el router de Express para las rutas
+const router = express.Router();  
+require('dotenv').config({ path: './api.env' });
 
-// Setea tu clave API de SendGrid
-sgMail.setApiKey('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');
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // Ruta para solicitar restablecimiento de contraseña
 router.post('/reset-password', (req, res) => {
